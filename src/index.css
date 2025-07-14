@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WhizBee Design System - Kid-friendly learning platform
+All colors MUST be HSL for proper theming.
+*/
+
+/* Google Fonts Imports */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+/* Base styles and variables */
+:root {
+  /* Default Shadcn/UI type variables (keep these if you use other Shadcn components) */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+
+  /* WhizBee Custom Colors (HSL values - adjust as needed) */
+  --whiz-orange: 24 95% 60%;       /* A vibrant orange, e.g., for buttons/accents */
+  --whiz-blue: 200 80% 55%;        /* A friendly blue */
+  --whiz-purple: 270 70% 65%;      /* A playful purple */
+  --whiz-green: 140 70% 50%;       /* A lively green */
+  --whiz-yellow: 45 100% 60%;      /* A bright yellow */
+  --whiz-pink: 330 90% 70%;        /* A cheerful pink */
+
+  /* Derived shadow colors for neumorphic effects */
+  --whiz-orange-light-shadow: 24 100% 75%; /* Lighter orange for highlight shadow */
+  --whiz-orange-dark-shadow: 24 90% 45%;   /* Darker orange for depth shadow */
+
+
+  /* Sidebar Colors - Define these if you have a custom sidebar.
+      These should ideally come from your design system/theme. */
+  --sidebar-background: 210 40% 96.1%; /* Light gray */
+  --sidebar-foreground: 222.2 47.4% 11.2%; /* Dark text */
+  --sidebar-primary: 222.2 84% 4.9%; /* Dark primary for active items */
+  --sidebar-primary-foreground: 210 40% 98%; /* Light text for primary */
+  --sidebar-accent: 210 40% 96.1%; /* Light accent for hover */
+  --sidebar-accent-foreground: 222.2 47.4% 11.2%; /* Dark text for accent */
+  --sidebar-border: 214.3 31.8% 91.4%; /* Light border */
+  --sidebar-ring: 222.2 84% 4.9%; /* Ring color */
+
+  /* Custom Transitions */
+  --transition-smooth: all 0.3s ease-in-out;
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.dark {
+  /* Dark mode variables if applicable */
+  --background: 222.2 47.4% 11.2%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 47.4% 11.2%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 47.4% 11.2%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+/* Base styles for the body */
+body {
+  @apply bg-background text-foreground;
+  font-family: 'Nunito', sans-serif; /* Set Nunito as the base font for body */
+}
+
+/* --- */
+
+/* Custom Component Styles */
+
+/* Glassmorphism Effect */
+.glass {
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle white for transparency */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.glass-nav-item {
+  background-color: rgba(255, 255, 255, 0.08); /* Slightly more opaque for nav items */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Neuro-Card (Faded Box-like Structure) */
+.neuro-card {
+  background-color: hsla(0, 0%, 100%, 0.1); /* Slightly more opaque white */
+  backdrop-filter: blur(12px); /* Stronger blur for cards */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2); /* Subtle light border */
+  border-radius: 1.5rem; /* Rounded edges, adjust as needed */
+  box-shadow:
+    0 8px 32px 0 hsla(220, 5%, 88%, 0.2), /* Soft, slightly darker shadow */
+    0 4px 10px hsla(0, 0%, 0%, 0.08); /* General subtle shadow */
+  padding: 2rem; /* Add consistent padding */
+}
+
+/* Apply a slightly more opaque white to neuro-card specifically within the team section */
+/* You might need to adjust the selector based on the exact structure */
+/* For now, this will apply to ALL neuro-cards. */
+.neuro-card {
+  background-color: hsla(0, 0%, 95%, 0.3); /* Slightly more opaque and less pure white */
+}
+
+/* Neuro-Button (Colored Buttons) */
+.neuro-button {
+  background-color: hsl(var(--whiz-orange)); /* Uses your defined orange color */
+  color: hsl(var(--primary-foreground)); /* Typically white text for dark buttons */
+  padding: 1rem 2rem;
+  border-radius: 9999px; /* Fully rounded/pill shape */
+  font-weight: 600; /* Semibold */
+  transition: var(--transition-smooth); /* Use your custom smooth transition */
+  border: none; /* Ensure no default button border interferes */
+  cursor: pointer;
+  box-shadow:
+    6px 6px 12px hsla(var(--whiz-orange-dark-shadow), 0.3), /* Darker shadow for depth */
+    -6px -6px 12px hsla(var(--whiz-orange-light-shadow), 0.7); /* Lighter shadow for highlight */
+}
+
+.neuro-button:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow:
+    8px 8px 16px hsla(var(--whiz-orange-dark-shadow), 0.4),
+    -8px -8px 16px hsla(var(--whiz-orange-light-shadow), 0.8);
+}
+
+.neuro-button:active {
+  transform: translateY(1px); /* Pressed-in effect on click */
+  box-shadow:
+    inset 3px 3px 7px hsla(var(--whiz-orange-dark-shadow), 0.3),
+    inset -3px -3px 7px hsla(var(--whiz-orange-light-shadow), 0.7);
+}
+
+/* --- */
+
+/* Animation Classes */
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease; /* Ensure this matches what's in tailwind.config for duration/timing */
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Custom glow on hover for text (if needed, adjust as per design) */
+.text-glow-on-hover {
+  text-shadow: 0 0 0px var(--whiz-orange); /* Initial state: no glow */
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.text-glow-on-hover:hover {
+  text-shadow: 0 0 5px hsla(var(--whiz-orange), 0.7); /* Glow effect on hover */
+}
+
+/* Keyframes for ripple effect */
+@keyframes ripple-border {
+  0% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.animate-ripple-border {
+  animation: ripple-border 3s infinite ease-in-out;
+}
+
+@keyframes ripple-fade-glass {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.animate-ripple-fade-glass {
+  animation: ripple-fade-glass 1.5s ease-out forwards; /* Changed to forwards to hold end state */
+}
+
+@keyframes ripple-text {
+  0% {
+    text-shadow: 0 0 0px hsla(var(--foreground), 1);
+  }
+  50% {
+    text-shadow: 0 0 10px hsla(var(--whiz-orange), 0.8);
+  }
+  100% {
+    text-shadow: 0 0 0px hsla(var(--foreground), 1);
+  }
+}
+
+.animate-ripple {
+  animation: ripple-text 3s infinite ease-in-out;
+}
+
+/* --- 3D Animated Background Styles --- */
+
+/* Keyframes for floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(-5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Keyframes for bouncing animation (more pronounced vertical movement) */
+@keyframes bounce-3d {
+  0%, 100% { transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-25px) scale(1.05) rotateX(10deg) rotateY(10deg); }
+  50% { transform: translateY(0) scale(1) rotateX(0deg) rotateY(0deg); }
+  75% { transform: translateY(-15px) scale(1.02) rotateX(-5deg) rotateY(-5deg); }
+}
+
+/* Generic styles for the animated shapes */
+.animated-shape {
+  position: absolute;
+  opacity: 0.7; /* Slightly transparent */
+  filter: blur(1px); /* Soft blur for a dreamy effect */
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+/* Specific shape styles with colors and animations */
+.shape-circle {
+  border-radius: 50%;
+  animation-name: float;
+}
+
+.shape-square {
+  border-radius: 8px; /* Slightly rounded squares */
+  animation-name: bounce-3d;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom-width: 50px; /* Adjust height */
+  animation-name: float;
+}
+
+/* Apply WhizBee colors */
+.bg-whiz-orange { background-color: hsl(var(--whiz-orange)); }
+.bg-whiz-blue { background-color: hsl(var(--whiz-blue)); }
+.bg-whiz-purple { background-color: hsl(var(--whiz-purple)); }
+.bg-whiz-green { background-color: hsl(var(--whiz-green)); }
+.bg-whiz-yellow { background-color: hsl(var(--whiz-yellow)); }
+.bg-whiz-pink { background-color: hsl(var(--whiz-pink)); }
+
+.border-whiz-orange { border-bottom-color: hsl(var(--whiz-orange)); }
+.border-whiz-blue { border-bottom-color: hsl(var(--whiz-blue)); }
+.border-whiz-purple { border-bottom-color: hsl(var(--whiz-purple)); }
+.border-whiz-green { border-bottom-color: hsl(var(--whiz-green)); }
+.border-whiz-yellow { border-bottom-color: hsl(var(--whiz-yellow)); }
+.border-whiz-pink { border-bottom-color: hsl(var(--whiz-pink)); }
+
+/* NEW: Fall animation for decorative elements */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-fall {
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
