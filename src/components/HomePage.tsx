@@ -31,8 +31,6 @@ import { debounce } from '../lib/utils.ts';
 import ParallaxBackground from '../components/ParallaxBackground'; // Import the parallax background component
 import SparkleTrail from '../components/SparkleTrail'; // Import the sparkle trail component
 import RainbowBackground from '../components/RainbowBackground'; // Import the rainbow background component
-import ParallaxRain from '../components/ParallaxRain'; // NEW: Import the ParallaxRain component
-
 const HomePage = () => {
   const navigate = useNavigate();
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -183,9 +181,6 @@ const HomePage = () => {
       <div className="min-h-screen relative overflow-hidden">
         {/* 🌈 Rainbow hue-shifting background */}
         <RainbowBackground />
-
-        {/* 🌧️ Parallax Rain Behind All Sections (except Hero) - NEW */}
-        <ParallaxRain />
 
         {/* 🧁 Parallax Decorative Layer */}
         <ParallaxBackground />

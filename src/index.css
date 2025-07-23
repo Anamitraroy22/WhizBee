@@ -8,6 +8,7 @@ All colors MUST be HSL for proper theming.
 
 /* Google Fonts Imports */
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&...");
 
 /* Base styles and variables */
 :root {
@@ -34,20 +35,20 @@ All colors MUST be HSL for proper theming.
   --radius: 0.5rem;
 
   /* WhizBee Custom Colors (HSL values - adjust as needed) */
-  --whiz-orange: 24 95% 60%;       /* A vibrant orange, e.g., for buttons/accents */
-  --whiz-blue: 200 80% 55%;        /* A friendly blue */
-  --whiz-purple: 270 70% 65%;      /* A playful purple */
-  --whiz-green: 140 70% 50%;       /* A lively green */
-  --whiz-yellow: 45 100% 60%;      /* A bright yellow */
-  --whiz-pink: 330 90% 70%;        /* A cheerful pink */
+  --whiz-orange: 24 95% 60%; /* A vibrant orange, e.g., for buttons/accents */
+  --whiz-blue: 200 80% 55%; /* A friendly blue */
+  --whiz-purple: 270 70% 65%; /* A playful purple */
+  --whiz-green: 140 70% 50%; /* A lively green */
+  --whiz-yellow: 45 100% 60%; /* A bright yellow */
+  --whiz-pink: 330 90% 70%; /* A cheerful pink */
 
   /* Derived shadow colors for neumorphic effects */
   --whiz-orange-light-shadow: 24 100% 75%; /* Lighter orange for highlight shadow */
-  --whiz-orange-dark-shadow: 24 90% 45%;   /* Darker orange for depth shadow */
+  --whiz-orange-dark-shadow: 24 90% 45%; /* Darker orange for depth shadow */
 
 
   /* Sidebar Colors - Define these if you have a custom sidebar.
-      These should ideally come from your design system/theme. */
+  These should ideally come from your design system/theme. */
   --sidebar-background: 210 40% 96.1%; /* Light gray */
   --sidebar-foreground: 222.2 47.4% 11.2%; /* Dark text */
   --sidebar-primary: 222.2 84% 4.9%; /* Dark primary for active items */
@@ -91,7 +92,7 @@ body {
   font-family: 'Nunito', sans-serif; /* Set Nunito as the base font for body */
 }
 
-/* --- */
+---
 
 /* Custom Component Styles */
 
@@ -161,7 +162,7 @@ body {
     inset -3px -3px 7px hsla(var(--whiz-orange-light-shadow), 0.7);
 }
 
-/* --- */
+---
 
 /* Animation Classes */
 
@@ -324,4 +325,10 @@ body {
   animation-name: fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+/* Fix: motion-blur class definition */
+.motion-blur {
+  filter: blur(1px);
+  opacity: 0.85;
 }

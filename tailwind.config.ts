@@ -15,6 +15,10 @@ const config: Config = {
   safelist: [
     'section-hidden',
     'section-visible',
+    // --- ADDED/UPDATED FOR RAIN EFFECT ---
+    'animate-fall', // Ensure animate-fall is not purged
+    'motion-blur',  // Ensure motion-blur is not purged
+    // ------------------------------------
     // Patterns for dynamic 'whiz' colors
     {
       pattern: /(bg|text|border|ring|hover:bg|hover:text)-(whiz)-(blue|orange|purple|green|yellow|pink)(\/\d+)?/,
@@ -186,6 +190,11 @@ const config: Config = {
           '0%': { opacity: '1', transform: 'scale(1)' },
           '100%': { opacity: '0', transform: 'scale(2)' },
         },
+        // ✅ ADDED: Keyframe for 'fall' for the decorative rain
+        fall: {
+            '0%': { transform: 'translateY(-100px) rotate(0deg)', opacity: '1' },
+            '100%': { transform: 'translateY(110vh) rotate(360deg)', opacity: '0' },
+        },
       },
 
       animation: {
@@ -206,6 +215,8 @@ const config: Config = {
         'rotate-slow-animation': 'rotate-slow 60s linear infinite',
         // NEW: Animation for SparkleTrail
         'sparkle-fade-animation': 'sparkleFade 1s ease-out forwards',
+        // ✅ ADDED: Animation for 'fall' for the decorative rain
+        fall: 'fall linear infinite',
       },
     },
   },

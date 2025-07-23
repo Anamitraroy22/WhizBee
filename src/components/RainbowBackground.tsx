@@ -1,4 +1,4 @@
-// src/components/RainbowBackground.tsx
+// src/components/RainbowBackground.tsx (REVISED for fixed positioning)
 import React, { useEffect, useRef } from 'react';
 
 const RainbowBackground = () => {
@@ -17,15 +17,15 @@ const RainbowBackground = () => {
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures this effect runs once on mount and cleans up on unmount
+  }, []);
 
   return (
-    // The div that will display the rainbow background
-    // z-[-10] places it behind other z-indexed elements (like z-0 and z-10)
-    // transition-all duration-1000 ease-in-out ensures smooth color changes
+    // Key Change: Use 'fixed' instead of 'absolute' for viewport-wide coverage.
+    // Also, use a very low z-index like z-[-20] or z-[-100] to ensure it's behind everything.
+    // The transition-all is still relevant for smooth changes if any other properties were to change via Tailwind.
     <div
       ref={bgRef}
-      className="absolute inset-0 z-[-10] transition-all duration-1000 ease-in-out"
+      className="fixed inset-0 z-[-100] transition-all duration-1000 ease-in-out" // Changed to 'fixed' and z-[-100]
     />
   );
 };
