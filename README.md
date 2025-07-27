@@ -9,7 +9,7 @@ It empowers young learners with interactive modules, colorful 3D visuals, and fu
 
 ## 🚀 Live Demo
 
-👉 [Visit WhizBee on Netlify](https://your-whizbee.netlify.app) <!-- Replace after deployment -->
+👉 [[[Visit WhizBee on Netlify]([https://your-whizbee.netlify.app](https://whizzbee.netlify.app/)) ](https://whizzbee.netlify.app/)](https://whizzbee.netlify.app/)
 
 ---
 
