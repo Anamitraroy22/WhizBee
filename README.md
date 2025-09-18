@@ -23,6 +23,7 @@ It empowers young learners with interactive modules, colorful 3D visuals, and fu
 - 🎁 Sample free trial backend using **Node.js**  
 - 🔒 Future-ready authentication and user tracking  
 - Ongoing development of the backend. 
+Done develoing backend and uploading it soon.
 
 ---
 
